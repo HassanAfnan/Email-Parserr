@@ -1,0 +1,29 @@
+@import './mixins';
+@import './variables';
+
+.main-home {
+    flex:1;
+    min-height:100vh;
+    @include FlexStart(column);
+    width: 100vw;
+
+    .main-home-typing {
+        @include FlexEvenly(column);
+        height: 100px;
+        margin-top: 50px;
+
+        .main-typing-1 {
+            @include FlexStart(row);
+
+            h1{
+                margin-right:5px;
+
+            }
+        }
+
+        p {
+            font-size: 12px;
+            color:$medium-gray-color
+        }
+    }
+}

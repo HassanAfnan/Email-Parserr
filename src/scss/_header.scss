@@ -1,0 +1,103 @@
+@import "./mixins";
+@import "./variables";
+
+.main-header {
+  @include FlexBetween(row);
+  width: 100vw;
+  height: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position:sticky;
+  background-color: $white-color;
+
+  .main-header-left {
+    width: 40vw;
+    min-width: 200px;
+    @include FlexEvenly(row);
+
+    @media (max-width:1000px) {
+        width: 90vw;
+    }
+
+    .main-header-left-1 {
+      @include FlexStart(row);
+
+      img {
+        height: 40px;
+        width: 200px;
+
+        @media (max-width:800px) {
+            height: 40px;
+            width: 150px;
+        }
+      }
+    }
+
+    .main-header-left-2 {
+        @include FlexCenter(column);
+
+        p {
+            margin:0px;
+            color: $blue-color;
+
+            @media (max-width:800px) {
+                font-size: 12px;
+            }
+        }
+    }
+  }
+
+  .main-header-right {
+      @include FlexEvenly(row);
+      width: 60vw;
+
+      @media (max-width:800px) {
+          cursor: pointer;
+      }
+
+      p {
+          color:$medium-gray-color;
+          cursor: pointer;
+      }
+  }
+}
+
+@keyframes openBar {
+    0% {
+        height: 0px;
+    }
+    50% {
+        height: 200px;
+    }
+    100%{
+        height: 350px;
+    }
+}
+
+@keyframes growDown {
+    0%{
+        transform: scaleY(0);
+    }
+    80% {
+        transform: scaleY(1.1);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.collapsed-menu-div {
+    width: 100vw;
+    @include FlexEvenly(column);
+    background: $white-color;
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+    
+
+    p {
+        height: 20px;
+        color:$medium-gray-color;
+        cursor: pointer;
+        
+    }
+}
